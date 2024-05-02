@@ -1,0 +1,4 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.typeDefs = void 0;
+exports.typeDefs = "#graphql\ntype Game {\n    id: ID!\n    title: String!\n    platform: [String!]!\n    reviews: [Review!]\n}\ntype Review {\n    id: ID!\n    rating: Int!\n    content: String!\n    game: Game!\n    author: Author!\n}\ntype Author {\n    id: ID!\n    name: String!\n    verified: Boolean!\n    reviews: [Review!]\n}\ntype Query {\n    reviews: [Review]\n    review(id: ID!): Review\n    games: [Game]\n    game(id: ID!): Game\n    authors: [Author]\n    author(id: ID!): Author\n}\ntype Mutation {\n    addGame(game: AddGameInput): Game\n    deleteGame(id: ID!): [Game]\n    updateGame(id: ID!, edits: EditGameInput!): Game\n}\ninput AddGameInput{\n    title: String!,\n    platform: [String!]!\n}\ninput EditGameInput{\n    title: String,\n    platform: [String!]\n}\n";
